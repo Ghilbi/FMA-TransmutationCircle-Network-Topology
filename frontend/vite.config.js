@@ -10,4 +10,5 @@ export default defineConfig({
       },
     }),
   ],
+  base: '/FMA-TransmutationCircle-Network-Topology/',
 })
