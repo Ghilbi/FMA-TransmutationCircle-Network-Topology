@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   TRANSMUTATION CIRCLE — BASE STYLES
+   Inspired by Fullmetal Alchemist sacred geometry
+   Philosophy: Equivalent Exchange, Balance, Precision
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Core Palette — Restrained, High-Contrast */
+  --void-black: #0a0a0a;
+  --ink-black: #111111;
+  --charcoal: #1a1a1a;
+  --graphite: #2a2a2a;
+  --ash: #3a3a3a;
+  --stone: #555555;
+  --silver: #888888;
+  --mist: #b0b0b0;
+  --chalk: #e0e0e0;
+  --bone-white: #f5f5f0;
+  --pure-white: #ffffff;
+  
+  /* Gold Accents — Muted, Alchemical */
+  --gold-dark: #8b7355;
+  --gold-muted: #b8a070;
+  --gold-bright: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.15);
+  --gold-intense: rgba(212, 175, 55, 0.4);
+  
+  /* Functional Colors */
+  --circle-stroke: var(--chalk);
+  --circle-stroke-dim: var(--stone);
+  --node-fill: var(--charcoal);
+  --node-stroke: var(--gold-muted);
+  --text-primary: var(--bone-white);
+  --text-secondary: var(--silver);
+  --text-accent: var(--gold-muted);
+  
+  /* Typography */
+  --font-display: 'Cinzel', 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+  
+  /* Spacing — Based on Golden Ratio φ ≈ 1.618 */
+  --space-xs: 0.382rem;
+  --space-sm: 0.618rem;
+  --space-md: 1rem;
+  --space-lg: 1.618rem;
+  --space-xl: 2.618rem;
+  --space-2xl: 4.236rem;
+  
+  /* Transitions — Deliberate, Ceremonial */
+  --transition-fast: 200ms ease-out;
+  --transition-medium: 400ms ease-out;
+  --transition-slow: 800ms ease-out;
+  --transition-ceremonial: 1200ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Rendering */
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.618;
+  color: var(--text-primary);
+  background-color: var(--void-black);
+  min-height: 100vh;
+  overflow-x: hidden;
+  
+  /* Subtle texture overlay */
+  background-image: 
+    radial-gradient(ellipse at center, var(--ink-black) 0%, var(--void-black) 100%);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--gold-glow);
+  color: var(--pure-white);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--stone);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+h4 { font-size: 1rem; }
+
+p {
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+pre {
+  background: var(--charcoal);
+  border: 1px solid var(--ash);
+  border-radius: 2px;
+  padding: var(--space-md);
+  overflow-x: auto;
+  color: var(--mist);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LINKS & BUTTONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--gold-bright);
+}
+
+button {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--stone);
+  padding: var(--space-sm) var(--space-lg);
+  cursor: pointer;
+  transition: all var(--transition-medium);
+}
+
+button:hover {
+  border-color: var(--gold-muted);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.text-gold { color: var(--gold-muted); }
+.text-dim { color: var(--text-secondary); }
+.text-center { text-align: center; }
+
+.glow-gold {
+  filter: drop-shadow(0 0 8px var(--gold-glow));
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-slow) ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
