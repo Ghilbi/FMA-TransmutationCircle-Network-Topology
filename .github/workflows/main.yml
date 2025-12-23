@@ -26,17 +26,6 @@ jobs:
         with:
           node-version: 20
 
-      # Backend setup
-      - name: Install backend dependencies
-        working-directory: ./backend
-        run: npm install
-
-      - name: Start backend
-        working-directory: ./backend
-        run: npm start &
-        env:
-          NODE_ENV: production
-
       # Frontend setup
       - name: Install frontend dependencies
         working-directory: ./frontend
