@@ -2,7 +2,7 @@
 
 An interactive network topology visualization inspired by **Fullmetal Alchemist**. Visualizes a three-tier enterprise network as a mystical transmutation circle.
 
-**[Live Demo](https://yourusername.github.io/FMA-TransmutationCircle-Network-Topology/)**
+**[Live Demo](https://ghilbi.github.io/FMA-TransmutationCircle-Network-Topology/)**
 
 ##  Features
 
