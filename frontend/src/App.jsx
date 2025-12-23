@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
+import { devices as deviceData } from "./data/devices";
 
 // Alchemical symbols for device types (Fullmetal Alchemist themed)
 const SYMBOLS = {
@@ -71,29 +72,10 @@ const createHexagramPath = (points) => {
 };
 
 export default function App() {
-  const [devices, setDevices] = useState([]);
+  const [devices] = useState(deviceData);
   const [selected, setSelected] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [activeLayer, setActiveLayer] = useState(null);
   const [activeVlan, setActiveVlan] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/devices")
-      .then(res => {
-        if (!res.ok) throw new Error("Failed to connect to the Gate");
-        return res.json();
-      })
-      .then(data => {
-        setDevices(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Connection failed:", err);
-        setError("Unable to establish connection. Ensure the backend server is running.");
-        setLoading(false);
-      });
-  }, []);
 
   const center = 400;
   const svgSize = 800;
@@ -277,24 +259,6 @@ export default function App() {
     if (activeVlan && device.vlan !== activeVlan) return false;
     return true;
   };
-
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="loading-circle" />
-        <span className="loading-text">Initializing Transmutation Circle</span>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="error-container">
-        <h2 className="error-title">Transmutation Failed</h2>
-        <p className="error-message">{error}</p>
-      </div>
-    );
-  }
 
   return (
     <div className="transmutation-container">
